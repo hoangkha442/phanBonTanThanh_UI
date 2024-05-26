@@ -2,7 +2,8 @@ import { message } from 'antd';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+import backgroundImage from '../../asset/img-auth-big.jpg';
+import logoImage from '../../asset/logoTT.png';
 const Login = () => {
   const [email, setEmail] = useState('admin@gmail.comp');
   const [password, setPassword] = useState('1234');
@@ -29,11 +30,11 @@ const Login = () => {
   return (
     <div 
       className="min-h-screen bg-cover bg-center flex items-center justify-center" 
-      style={{ backgroundImage: "url('http://dnqt.net/Template/assets/images/auth/img-auth-big.jpg')" }}
+      style={{ backgroundImage: `url(${backgroundImage})` }} 
     >
       <div className="flex flex-col items-center w-full max-w-md">
         <div className="bg-white bg-opacity-60 p-1 rounded-lg mb-6 w-[40%]">
-          <img src="http://dnqt.net/Template/assets/images/logoTT.png" alt="Phân Bón Tấn Thành Logo" className="h-full object-cover mx-auto"/>
+          <img src={logoImage} alt="Phân Bón Tấn Thành Logo" className="h-full object-cover mx-auto"/>
         </div>
         <div className="bg-white px-10 py-12 rounded-lg shadow-lg w-10/12">
           <h2 className="text-[#4c7031] text-2xl font-semibold text-center mb-4 uppercase">Đăng Nhập</h2>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaUser, FaUsers, FaChartLine, FaBox, FaDollarSign, FaExchangeAlt, FaFileInvoiceDollar, FaWarehouse, FaClipboardList, FaIndustry } from 'react-icons/fa';
-import { message } from 'antd';
+import avatarDefault from '../asset/default-avatar.png';
+import imgSidebar from '../asset/Image-sidebar.jpg';
+
 import Swal from 'sweetalert2';
 
 const Sidebar = () => {
@@ -28,12 +30,12 @@ const Sidebar = () => {
   return (
     <div 
       className="fixed z-[10] w-[235px] h-full mt-14 top-0 bg-cover bg-center shadow-lg transition-all  duration-300 text-white overflow-hidden"
-      style={{height: 'calc(100% - 3.5rem)', backgroundImage: "url('http://dnqt.net/Template/assets/images/Image-sidebar.jpg')" }}
+      style={{height: 'calc(100% - 3.5rem)',backgroundImage: `url(${imgSidebar})`  }}
     >
       <div style={{ backgroundImage: "linear-gradient(to bottom right, rgba(76, 112, 49, 0.8), rgba(76, 112, 49, 0.2))" }} className="absolute inset-0"></div>
       <div className="relative p-4 flex items-center gap-2 bg-[#4c7031]">
         <div className="rounded-full bg-gray-400 h-10 w-10 mb-2">
-          <img src="http://dnqt.net/Template/assets/images/default-avatar.png" className='rounded-full' alt="" />
+          <img src={avatarDefault} className='rounded-full' alt="avatar" />
         </div>
         <div>
           <h1 className="text-sm font-bold">Admin website</h1>
