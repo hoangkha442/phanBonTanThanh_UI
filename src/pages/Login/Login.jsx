@@ -1,6 +1,7 @@
 import { message } from 'antd';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const [email, setEmail] = useState('admin@gmail.comp');
@@ -14,7 +15,11 @@ const Login = () => {
     if (isAuthenticated) {
       navigate('/employees');
       setTimeout(() => {
-        message.success('Đăng nhập thành công!')
+        // message.success('Đăng nhập thành công!')
+        Swal.fire({
+          icon: "success",
+          text: "Đăng nhập thành công!",
+        });
       }, 400);
     } else {
       alert('Đăng nhập thất bại');
