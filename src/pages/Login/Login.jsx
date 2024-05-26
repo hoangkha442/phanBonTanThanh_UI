@@ -1,6 +1,26 @@
-import React from 'react';
+import { message } from 'antd';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const [email, setEmail] = useState('admin@gmail.comp');
+  const [password, setPassword] = useState('1234');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isAuthenticated = true; 
+
+    if (isAuthenticated) {
+      navigate('/employees');
+      setTimeout(() => {
+        message.success('Đăng nhập thành công!')
+      }, 400);
+    } else {
+      alert('Đăng nhập thất bại');
+    }
+  };
+
   return (
     <div 
       className="min-h-screen bg-cover bg-center flex items-center justify-center" 
@@ -12,13 +32,16 @@ const Login = () => {
         </div>
         <div className="bg-white px-10 py-12 rounded-lg shadow-lg w-10/12">
           <h2 className="text-[#4c7031] text-2xl font-semibold text-center mb-4 uppercase">Đăng Nhập</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4 border-t pt-4">
               <input 
                 className="w-full p-3 border-2 text-sm border-gray-300 focus:outline-none focus:border-green-500" 
                 type="email" 
                 id="email" 
                 placeholder="Địa chỉ email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="mb-4">
@@ -27,6 +50,9 @@ const Login = () => {
                 type="password" 
                 id="password" 
                 placeholder="Mật khẩu" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
             <div className="my-5 flex items-center">
